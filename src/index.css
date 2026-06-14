@@ -1,0 +1,12 @@
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+/* 主界面不出现整页滚动条，滚动交给内部列表 */
+body {
+  overflow: hidden;
+}

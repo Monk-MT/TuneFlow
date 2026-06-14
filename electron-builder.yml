@@ -1,0 +1,20 @@
+appId: com.wangyiaddmusic.app
+productName: 网易云批量加歌
+directories:
+  output: dist
+  buildResources: build
+files:
+  - out/**/*
+  - package.json
+extraResources:
+  - from: resources
+    to: resources
+mac:
+  icon: build/icon.icns
+  target:
+    - dmg
+  category: public.app-category.music
+win:
+  icon: build/icon.png
+  target:
+    - nsis

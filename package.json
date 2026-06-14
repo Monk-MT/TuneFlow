@@ -1,0 +1,43 @@
+{
+  "name": "wangyi-add-music",
+  "version": "0.1.0",
+  "description": "网易云音乐批量加歌工具",
+  "main": "out/main/index.js",
+  "author": "wangyiAddMusic",
+  "license": "MIT",
+  "scripts": {
+    "dev": "electron-vite dev",
+    "build": "electron-vite build",
+    "typecheck:node": "tsc --noEmit -p tsconfig.node.json",
+    "typecheck:web": "tsc --noEmit -p tsconfig.web.json",
+    "typecheck": "npm run typecheck:node && npm run typecheck:web",
+    "start": "electron-vite preview",
+    "dist": "electron-vite build && electron-builder",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "electron-store": "^8.2.0",
+    "papaparse": "^5.4.1",
+    "qrcode": "^1.5.4"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "^5.3.7",
+    "@types/node": "^20.14.0",
+    "@types/papaparse": "^5.3.14",
+    "@types/qrcode": "^1.5.6",
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@vitejs/plugin-react": "^4.3.1",
+    "antd": "^5.18.3",
+    "electron": "^31.1.0",
+    "electron-builder": "^24.13.3",
+    "electron-vite": "^2.3.0",
+    "rc-virtual-list": "^3.14.5",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "typescript": "^5.5.2",
+    "vite": "^5.3.1",
+    "vitest": "^1.6.0",
+    "zustand": "^4.5.4"
+  }
+}
