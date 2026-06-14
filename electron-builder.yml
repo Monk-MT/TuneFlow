@@ -1,5 +1,9 @@
 appId: com.wangyiaddmusic.app
 productName: 网易云批量加歌
+publish:
+  provider: github
+  owner: Monk-MT
+  repo: TuneFlow
 directories:
   output: dist
   buildResources: build
