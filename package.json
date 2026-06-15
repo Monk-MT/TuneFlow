@@ -13,6 +13,7 @@
     "typecheck": "npm run typecheck:node && npm run typecheck:web",
     "start": "electron-vite preview",
     "dist": "electron-vite build && electron-builder",
+    "release": "electron-builder --publish always",
     "test": "vitest run"
   },
   "dependencies": {
