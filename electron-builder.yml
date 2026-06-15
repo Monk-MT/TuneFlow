@@ -4,6 +4,7 @@ publish:
   provider: github
   owner: Monk-MT
   repo: TuneFlow
+  releaseType: release
 directories:
   output: dist
   buildResources: build
