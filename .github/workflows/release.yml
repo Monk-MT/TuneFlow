@@ -27,7 +27,15 @@ jobs:
           cache: npm
 
       - name: Install dependencies
-        run: npm ci
+        run: npm ci --include=dev
+
+      - name: Diagnose
+        shell: bash
+        run: |
+          echo "::error::NODE_ENV=[$NODE_ENV] npm_config_production=[$npm_config_production]"
+          echo "::error::node=$(node -v) npm=$(npm -v)"
+          ls node_modules/.bin | grep -i electron | while IFS= read -r l; do echo "::error::bin: $l"; done
+          test -e node_modules/electron-vite/bin/electron-vite.js && echo "::error::electron-vite present" || echo "::error::electron-vite MISSING"
 
       - name: Build
         run: npm run build
