@@ -32,11 +32,13 @@ jobs:
       - name: Diagnose
         shell: bash
         run: |
-          BINS=$(ls node_modules/.bin 2>/dev/null | tr '\n' ',')
+          BINS=$(ls node_modules/.bin 2>/dev/null | grep -i electron | tr '\n' ',')
           EV=$(test -e node_modules/electron-vite/bin/electron-vite.js && echo YES || echo NO)
           PKG=$(test -d node_modules/electron-vite && echo YES || echo NO)
-          echo "::error::node=$(node -v) NODE_ENV=[$NODE_ENV] ev_pkg=$PKG ev_bin=$EV"
-          echo "::error::BINS=$BINS"
+          COUNT=$(ls node_modules 2>/dev/null | wc -l | tr -d ' ')
+          echo "DIAG node=$(node -v) NODE_ENV=[$NODE_ENV] nm_count=$COUNT ev_pkg=$PKG ev_bin=$EV ebins=[$BINS]"
+          echo "::error title=DIAG::node=$(node -v) nm_count=$COUNT ev_pkg=$PKG ev_bin=$EV ebins=[$BINS]"
+          exit 1
 
       - name: Build
         run: npm run build
