@@ -30,7 +30,17 @@ jobs:
         run: npm ci
 
       - name: Build
-        run: npx electron-vite build
+        shell: bash
+        run: |
+          set +e
+          npx electron-vite build > build.log 2>&1
+          code=$?
+          cat build.log
+          if [ $code -ne 0 ]; then
+            echo "::error::BUILD FAILED (exit $code). Tail:"
+            tail -40 build.log | while IFS= read -r line; do echo "::error::$line"; done
+          fi
+          exit $code
 
       - name: Package and publish
         run: npx electron-builder --publish always
